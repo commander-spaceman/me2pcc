@@ -170,7 +170,7 @@ func resolveBoolOrArrayMeta(data []byte, cursor *int, propType string, propSize 
 }
 
 func isPlausibleTagStart(data []byte, offset int, end int, names []string) bool {
-	if offset+8 > end {
+	if offset < 0 || offset+8 > end {
 		return false
 	}
 	nameA := readI32(data, offset)
